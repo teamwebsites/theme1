@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+.wp-admin a {color: grey !important;}
+
+.tablenav-pages-navspan {height: 28px !important;}
+
+body, html, p, h1, h2, h3, h4, h5, h6, input, textarea, span, body#tinymce.wp-editor {font-family: Montserrat, sans-serif !important;}
+
+body#tinymce.wp-editor {
+font-size: 87%;
+}
+
+#mobresp {background: transparent !important; padding: 0px !important;} #mobresp:before {margin-bottom: 0px !important;}
+
+fieldset {border: none !important;}
+
+@media screen and (max-width: 950px){ #TB_window, #TB_window, .thickbox-loading {top: 20px !important; height: 70% !important;} }
+
+.wp-admin .pagination-links {margin-bottom: 15px;}
+
+#titlediv #title-prompt-text, #title-prompt-text {
+    line-height: 20px !important;
+}
+.taxonomy-wpcm_jobs .term-description-wrap {display: none !important;}

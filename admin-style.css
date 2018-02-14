@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+.wp-admin fieldset {border: none;}
+
+#timestampdiv input, #timestampdiv select {font-size: 12px !important; height: 30px !important; text-align: center; max-width: none !important;}  #timestampdiv input {width: 30px !important;}
+
+.inline-edit-row, .inline-edit-row input, .inline-edit-row span, .inline-edit-row label, .inline-edit-row form, .inline-edit-row fieldset, .inline-edit-row select {font-size: 12.5px !important;}
+
+.post-type-wpcm_player .term-slug-wrap, .post-type-wpcm_player .term-description-wrap {display: none !important;}
+
+.row-actions .trash a {background: red !important;}
+.row-actions span a {background: grey;}
+.row-actions span a {font-size: 11px !important;padding: 4px 7px; border-radius: 14px; color: #fff !important;}
+
+.wp-admin a {color: grey !important;}
+#TB_ajaxContent select, #TB_ajaxContent input {font-size: 60% !important;}
+#TB_window, .thickbox-loading {height: 100vh !important;} #TB_ajaxContent {max-width: 100% !important; font-size: 70% !important; height: calc(80vh - 39px) !important;}
+
+#mceu_32-body #mceu_11, #mceu_32-body #mceu_10, #ms-membership-access {display: none !important;}
+
+i.mce-i-wpcm_standings_button:before {content: "\f0cb" !important; font-family: FontAwesome !important; font-size: 14px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-top: 0.5px;}
+
+i.mce-i-wpcm_matches_button:before {content: "\f091" !important; font-family: FontAwesome !important; font-size: 14px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-top: 0.5px;}
+
+#mceu_32-body #mceu_12 button i:before {content: "\f1e3" !important; font-family: FontAwesome !important; font-size: 14px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-top: 0.5px;}
+
+.wpclubmanager .nav-tab-wrapper .nav-tab:last-child, .wpclubmanager .nav-tab-wrapper .nav-tab:first-child {display: none !important;}
+
+.tablenav-pages-navspan {height: 28px !important;}
+
+#edit-slug-box strong {display: block; clear: both; width: 100%;}
+
+#edit-slug-box {background: rgba(206, 206, 206, 0.4588235294117647); padding: 9px 16px; font-size: 90%; margin: 11px 0px; word-wrap: break-word; border-radius: 15px;}
+
+#edit-slug-box, #edit-slug-box a {color: #828282 !important;}
+
+.optionspage h2 {font-weight: 600 !important;} .optionspage h1 {font-weight: 700 !important;}
+
+body, html, p, h1, h2, h3, h4, h5, h6, input, textarea, span, body#tinymce.wp-editor, .wrap h1.wp-heading-inline, label, .wrap h2, .wrap h1, .wrap h3, .wrap h4, .wrap h5, .wrap h6 {font-family: 'Montserrat', sans-serif !important;}
+
+#postdivrich {margin: 13px 0px !important; display: block; clear: both;}
+
+#wp-content-editor-tools {padding-top: 0px !important; background: transparent !important;}
+
+#titlediv #title {border-radius: 19px; padding: 8px 15px !important; font-size: 16px !important; border-color: #e6e6e6; display: block; height: auto !important;}
+
+.wrap h1.wp-heading-inline {font-weight: 700 !important;
+    font-kerning: initial;
+    font-variant: inherit;
+    color: rgba(0, 0, 0, 0.61);
+    font-size: 19px;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 1px #eee;}
+
+body#tinymce.wp-editor {
+font-size: 87%;
+}
+
+html {overflow: hidden;}
+
+.mce-panel.mce-menu {top: 80px;}
+
+#titlewrap input {margin: 1px 0px;}
+
+.inside #preview-action a {height: auto; padding: 6px 12px; border-color: #ccc; box-shadow: none; line-height: 165%; background: #9898988c; color: #ffffff !important; text-shadow: none;}
+
+#wpwrap .button-link:hover, .thickbox:hover, .add_product_images:hover a, .add_product_images:focus a, .thickbox:focus, .wpmui-form .button-link:hover, .wpmui-popup .button-link:hover, .postbox .inside .button-link:hover, .postbox .inside .taxonomy-add-new:hover, #wpwrap .button-link:focus, .wpmui-form .button-link:focus, .wpmui-popup .button-link:focus, .postbox .inside .button-link:focus, .postbox .inside .taxonomy-add-new:focus {text-decoration: underline !important;}
+
+.wc-tabs span {
+    font-size: 10px !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {border: inherit !important;}
+
+.select2-search__field {font-size: 12px !important;}
+
+.thickbox, #wpwrap .button-link, .add_product_images a, .wpmui-form .button-link, .wpmui-popup .button-link, .postbox .inside .button-link, .postbox .inside .taxonomy-add-new {text-decoration: none !important; height: auto !important; padding: 6px 12px !important; border-color: #eee !important; box-shadow: none !important; line-height: 165% !important; background: #d6d6d68c !important; color: #737373 !important;}
+
+#publish {height: auto; padding: 6px 12px !important; border-color: #ccc !important; box-shadow: none !important; line-height: 165% !important; text-shadow: none;}
+
+.inside input#save-post {height: auto; padding: 6px 12px; border-color: #eee; box-shadow: none; line-height: 165%; background: #d6d6d68c; color: #737373;}
+
+h1, h2, h3, h4, h5, h6, #poststuff .stuffbox>h3, #poststuff h2, #poststuff h3.hndle, h1 span, h2 span, h3 span, h4 span, h5 span, h6, h6 span {font-size: 91% !important;}
+
+input, a, .postbox .inside, .stuffbox .inside, select, button, span, label {font-size: 80% !important;}
+
+.woocommerce_options_panel .select2-container {width: 70% !important;}
+
+.helpdashtab a:before {font-family: FontAwesome !important; content: '\f059' !important;}
+#menu-option .icon {margin-top: -1.5px !important;}
+#menu-option .fa {margin-top: 3px !important;}
+.wsspg-subscription-product-data-tab_tab a:before {font-family: FontAwesome !important;}
+.helpdashtab a {position: relative;}
+
+#product-type {font-size: 10px !important;}
+
+#postexcerpt .wp-editor-tabs, #postexcerpt #wp-excerpt-editor-tools, #postexcerpt .mce-last {display: none !important;}
+
+#tinymce {overflow: auto !important;} .mce-container html {height: 100%; overflow-y: visible !important;}
+
+#woocommerce-coupon-data ul.wc-tabs li.custom_tab a::before,
+#woocommerce-product-data ul.wc-tabs li.custom_tab a::before,
+.woocommerce ul.wc-tabs li.custom_tab a::before {
+    font-family: Dashicons;
+    content: "\f111";
+}
+
+#mobresp {background: transparent !important;}
+
+@media screen and (min-width: 951px) { #mobresp {margin-left: 0px !important;} #menu-option .ion-android-color-palette {margin-top: -2px !important; margin-bottom: -3px;} }
+
+@media screen and (max-width: 950px) { #mobresp {margin-right: 13px !important;} #menu-option .ion-android-color-palette {margin-top: 3px !important;} .wrap {width: 100% !important;} body {overflow-y: scroll !important;}#mobresp {background: transparent !important; padding: 0px !important;} }
+
+#mobresp:before {margin-bottom: 0px !important;}
+
+fieldset {border: none !important;}
+
+@media screen and (max-width: 950px){ #TB_window, #TB_window, .thickbox-loading {top: 20px !important; height: 70% !important;} }
+
+.wp-admin .pagination-links {margin-bottom: 15px;}
+
+#titlediv #title-prompt-text, #title-prompt-text {
+    line-height: 20px !important;
+}
+.taxonomy-wpcm_jobs .term-description-wrap {display: none !important;}

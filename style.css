@@ -1,0 +1,22 @@
+/*
+* Theme Name:         Elite
+* Theme URI:          https://roots.io/sage/
+* Description:        Elite brings your members and supporters the very latest four news items first, with a tabbed news slider and customisable welcome message on the home page. <a href="https://github.com/roots/sage">Contribute on GitHub</a>
+* Version:            1.0.0
+* Author:             Team Websites
+* Author URI:         https://teamwebsites.co.uk/
+* Template Version: 1.0.0
+* Version:          0.1.0
+* Text Domain:        elite
+* GitHub Theme URI: teamwebsites/latestclubwebsites/theme1
+* License:            MIT License
+* License URI:        http://opensource.org/licenses/MIT
+*/
+
+main article .vcard {margin-bottom: 0px !important;}
+
+header .col-lg-8{margin-bottom: -30px !important;}
+
+.top-header + div {position: relative;}
+
+footer {text-align: center;}
