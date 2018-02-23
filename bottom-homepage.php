@@ -22,7 +22,7 @@ if ( has_custom_logo() ) {
 
 } else {
 
-        echo '<img id="logo" src="http://teamwebsites.co.uk/clubs/demo1/wp-content/uploads/sites/21/2017/06/club-badge-fc.png">';
+        echo '<img id="logo" src="https://teamwebsites.co.uk/clubs/demo1/wp-content/uploads/sites/21/2017/06/club-badge-fc.png">';
 
 } ?>    
     
@@ -581,7 +581,7 @@ Not Stated
 <li><a href="https://www.nspcc.org.uk/" target="_blank">NSPCC - 0808 800 5000</a></li>
 <li><a href="https://www.ceop.police.uk/safety-centre/" target="_blank" title="The Child Exploitation and Online Protection Command">CEOP - 999</a></li> 
 <li><a href="https://www.childline.org.uk/" target="_blank" title="Free, private and confidential - for Under 19's">Childline - 0800 1111</a></li>
-<li><a href="http://www.thefa.com/football-rules-governance/safeguarding" target="_blank">FA Safeguarding</a></li>
+<li><a href="https://www.thefa.com/football-rules-governance/safeguarding" target="_blank">FA Safeguarding</a></li>
 <li><a href="https://www.police.uk/forces/" target="_blank">Police - 999</a></li>
     
 </ul>

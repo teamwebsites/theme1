@@ -3,18 +3,32 @@
  * Template Name: Login Page
 **/
 
-echo '<div class="new-loginform" id="showloginform">';
+$sitename = get_bloginfo("name");
 
 $login  = (isset($_GET['login']) ) ? $_GET['login'] : 0;
 if ( $login === "failed" ) {
   echo '<p class="login-msg login-msg-fail"><strong>ERROR:</strong> Invalid username and/or password.</p>';
 } elseif ( $login === "empty" ) {
   echo '<p class="login-msg login-msg-fail"><strong>ERROR:</strong> Login attempt failed. Please try entering the correct details.</p>';
-} elseif ( $login === "false" ) {
+}
+
+elseif ( $login === "wpau_confirmation_error" ) {
+  echo '<p class="login-msg login-msg-warning"><strong>User Not Approved:</strong> Unfortunately it seems as if the Site Admin has not approved your User Account yet. Until the request has been approved by the '. $sitename .' site admin, you cannot access any hidden/private content.</p>';
+}
+
+elseif ( $login === "false" ) {
   echo '<p class="login-msg"><strong>ERROR:</strong> You are logged out.</p>';
 }
 ?>
 
+<!-- Custom Login/Register/Password Code @ https://digwp.com/2010/12/login-register-password-code/ -->
+<!-- jQuery -->
+
+<!-- Custom Login/Register/Password Code @ https://digwp.com/2010/12/login-register-password-code/ -->
+
+
+<!-- Custom Login/Register/Password Code @ https://digwp.com/2010/12/login-register-password-code/ -->
+<!-- CSS -->
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 .new-loginform h2 {text-align: center;}
@@ -69,60 +83,229 @@ input:-webkit-autofill {
 .new-loginform label {display: none !important;}
 .new-loginform {margin: 12px 0px;}
 .new-loginform, .new-loginform p, .new-loginform form, .new-loginform input, .new-loginform label, .new-loginform span{font-family: 'Montserrat', sans-serif !important;}
-.login-msg-fail {background: #c23d2a; padding: 7px 11px; color: rgba(255, 255, 255, 0.8588235294117647);}</style>
+.login-msg-fail {background: #c23d2a;}
+.login-msg-fail, .login-msg-warning {background: #e49400; padding: 7px 11px; color: rgba(255, 255, 255, 0.8588235294117647);}
+.tab_container_login {color: #000 !important;}
+/* tabbed list */
+ul.tabs_login {
+	padding: 0; margin: 20px 0 0 0;
+	position: relative;
+	list-style: none;
+	font-size: 14px;
+	z-index: 1000;
+	float: left;
+	}
+ul.tabs_login li {
+	border: 1px solid #E7E9F6;
+	 -webkit-border-top-right-radius: 10px;
+	 -khtml-border-radius-topright: 10px;	
+	 -moz-border-radius-topright: 10px;
+	border-top-right-radius: 10px;
+	 -webkit-border-top-left-radius: 10px;
+	 -khtml-border-radius-topleft: 10px;	
+	 -moz-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+	line-height: 28px; /* = */ height: 28px;
+	padding: 0; margin: 0 5px 0 0;
+	position: relative;
+	background: #fff;
+	overflow: hidden;
+	float: left;
+	}
+ul.tabs_login li a {
+	text-decoration: none;
+	padding: 0 10px;
+	display: block;
+	outline: none;
+	}
+html ul.tabs_login li.active_login {
+	border-left: 1px solid #E7E9F6;
+	border-bottom: 1px solid #fff;
+	 -webkit-border-top-right-radius: 10px;
+	 -khtml-border-radius-topright: 10px;	
+	 -moz-border-radius-topright: 10px;
+	border-top-right-radius: 10px;
+	 -webkit-border-top-left-radius: 10px;
+	 -khtml-border-radius-topleft: 10px;	
+	 -moz-border-radius-topleft: 10px;
+	border-top-left-radius: 10px;
+	background: #fff;
+	color: #333;
+	}
+html body ul.tabs_login li.active_login a { font-weight: bold; }
+.tab_container_login {
+	background: #fff;
+	position: relative;
+	margin: 0 0 20px 0;
+	border: 1px solid #E7E9F6;
+	 -webkit-border-bottom-left-radius: 10px;
+	 -khtml-border-radius-bottomleft: 10px;	
+	 -moz-border-radius-bottomleft: 10px;
+	border-bottom-left-radius: 10px;
+	 -webkit-border-bottom-right-radius: 10px;
+	 -khtml-border-radius-bottomright: 10px;	
+	 -moz-border-radius-bottomright: 10px;
+	border-bottom-right-radius: 10px;
+	 -webkit-border-top-right-radius: 10px;
+	 -khtml-border-radius-topright: 10px;	
+	 -moz-border-radius-topright: 10px;
+	border-top-right-radius: 10px;
+	z-index: 999;
+	float: left;
+	width: 100%;
+	top: -1px;
+	}
+.tab_content_login {
+	padding: 7px 15px 15px 15px;
+	padding-top: 10px;
+	}
+	.tab_content_login ul {
+		padding: 0; margin: 0 0 0 15px;
+		}
+		.tab_content_login li { margin: 5px 0; }
+/* global styles */
+#login-register-password {}
+	#login-register-password h3 {
+		border: 0 none;
+		margin: 10px 0;
+		padding: 0;
+		}
+	#login-register-password p {
+		margin: 0 0 15px 0;
+		padding: 0;
+		}
+/* form elements */
+.wp-user-form {}
+	.username, .password, .login_fields {
+		margin: 7px 0 0 0;
+		overflow: hidden;
+		width: 100%;
+		}
+		.username label, .password label { float: left; clear: none; width: 25%; }
+		.username input, .password input { 
+			font: 12px/1.5 "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+			float: left; clear: none; width: 200px; padding: 2px 3px; color: #777;
+			}
+.rememberme { overflow: hidden; width: 100%; margin-bottom: 7px; }
+#rememberme { float: left; clear: none; margin: 4px 4px -4px 0; }
+.user-submit { padding: 5px 10px; margin: 5px 0; }
+.userinfo { float: left; clear: none; width: 75%; margin-bottom: 10px; }
+	.userinfo p { 
+		margin-left: 10px; 
+		}
+.usericon { float: left; clear: none; width: 15%; margin: 0 0 10px 22px; }
+	.usericon img {
+		border: 1px solid #F4950E;
+		padding: 1px;
+		}
+</style>
 
-<div class="login-branding">
-  <h2><a href="#" class="login-logo">Login</a></h2>
-  <p class="login-desc">
-    Login to your club website and keep members up-to-date with the latest news, fixtures and results, and information about your club.
-  </p>
-</div>
-<script>
- $("#usernamefield").attr("tabindex",-1).focus();
-</script>
-<div class="login-form">
 
-<?php if ( is_user_logged_in() ) : ?>    
+<!-- Custom Login/Register/Password Code @ https://digwp.com/2010/12/login-register-password-code/ -->
+<!-- Theme Template Code -->
 
-<div class="not-logged-in">
+<div id="login-register-password">
 
-<h3>You are logged in.</h3>
+	<?php global $user_ID, $user_identity; if (!$user_ID) { ?>
 
-<p><a href="<?php echo admin_url(); ?>">Click here</a> to go to the admin panel, or be redirected to the <a href="<?php echo site_url(); ?>">home page</a>.</p>    
+	<ul class="tabs_login">
+		<li class="active_login"><a href="#tab1_login">Login</a></li>
+		<li><a href="#tab2_login">Register</a></li>
+		<li><a href="#tab3_login">Forgot?</a></li>
+	</ul>
+	<div class="tab_container_login">
+		<div id="tab1_login" class="tab_content_login">
 
-<p>Alternatively, <a href="<?php echo wp_logout_url( get_permalink() ); ?>">log out</a>.</p>
-    
-</div>
+			<?php $register = $_GET['register']; $reset = $_GET['reset']; if ($register == true) { ?>
 
-<?php else: ?>
+			<h3>Success!</h3>
+			<p>Check your email for the password and then return to log in.</p>
 
-<form name="loginform" autocomplete="off" id="loginform" action="<?php echo site_url('/', 'https'); ?>wp-login.php" method="post">
+			<?php } elseif ($reset == true) { ?>
+
+			<h3>Success!</h3>
+			<p>Check your email to reset your password.</p>
+
+			<?php } else { ?>
+
+			<h3>Have an account?</h3>
+			<p>Log in or sign up! It&rsquo;s fast &amp; <em>free!</em> Or click on the 'Register' tab to request access to hidden content.</p>
+
+			<?php } ?>
+
+			<form method="post" action="<?php bloginfo('url') ?>/wp-login.php" class="wp-user-form">
+			    
+			    
+			    
+				<div class="username">
+					<label for="user_login"><?php _e('Username'); ?>: </label>
+					<input type="text" name="log" value="<?php echo esc_attr(stripslashes($user_login)); ?>" size="20" id="user_login" tabindex="11" />
+				</div>
+				<div class="password">
+					<label for="user_pass"><?php _e('Password'); ?>: </label>
+					<input type="password" name="pwd" value="" size="20" id="user_pass" tabindex="12" />
+				</div>
+				<div class="login_fields">
+					<div class="rememberme">
+						<label for="rememberme">
+							<input type="checkbox" name="rememberme" value="forever" id="rememberme" tabindex="13" /> Remember me
+						</label>
+					</div>
+					<?php do_action('login_form'); ?>
+					<input type="submit" name="user-submit" value="<?php _e('Login'); ?>" tabindex="14" class="user-submit" />
+					<input type="hidden" name="redirect_to" value="<?php echo $_SERVER['REQUEST_URI']; ?>" />
+					<input type="hidden" name="user-cookie" value="1" />
+				</div>
+			</form>
+		</div>
+		<div id="tab2_login" class="tab_content_login" style="display:none;">
+			<h3>Register for this site!</h3>
+			<p>Sign up now for the good stuff.</p>
 			
-			<p class="login-username">
-				<label for="user">Username or Email Address</label>
-				
-				    <div class="loginformfield"><input class="loginformfield usernamefield loginfld" autocomplete="off" type="text" placeholder="Username / Email Address" name="log" id="user" class="input" value="" size="20"></input> <div class="username-icon login-field-icon"></div></div>
-				    
-			</p>
-			<p class="login-password">
-				<label for="pass">Password</label>
-				<div class="loginformfield"><input class="loginformfield passwordfield input loginfld" autocomplete="off" type="password" placeholder="Password" name="pwd" id="pass" value="" size="20"></input> <div class="password-icon login-field-icon"></div></div>
-			</p>
+			<p><a href="<?php echo site_url('/', 'https'); ?>register">Please click here to register and/or request access to this site.</a></p>
 			
-			<p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember Me</label></p>
-			<p class="login-submit">
-				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="Log In">
-				<input type="hidden" name="redirect_to" value="<?php echo site_url(); ?>">
+		</div>
+		<div id="tab3_login" class="tab_content_login" style="display:none;">
+			<h3>Lose something?</h3>
+			<p>Enter your username or email to reset your password.</p>
+			<form method="post" action="<?php echo site_url('wp-login.php?action=lostpassword', 'login_post') ?>" class="wp-user-form">
+				<div class="username">
+					<label for="user_login" class="hide"><?php _e('Username or Email'); ?>: </label>
+					<input type="text" name="user_login" value="" size="20" id="user_login" tabindex="1001" />
+				</div>
+				<div class="login_fields">
+					<?php do_action('login_form', 'resetpass'); ?>
+					<input type="submit" name="user-submit" value="<?php _e('Reset my password'); ?>" class="user-submit" tabindex="1002" />
+					<?php $reset = $_GET['reset']; if($reset == true) { echo '<p>A message will be sent to your email address.</p>'; } ?>
+					<input type="hidden" name="redirect_to" value="<?php echo $_SERVER['REQUEST_URI']; ?>?reset=true" />
+					<input type="hidden" name="user-cookie" value="1" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<?php } else { // is logged in ?>
+
+	<div class="sidebox">
+		<h3>Welcome, <?php echo $user_identity; ?></h3>
+		<div class="usericon">
+			<?php global $userdata; echo get_avatar($userdata->ID, 60); ?>
+
+		</div>
+		<div class="userinfo">
+			<p>You&rsquo;re logged in as <strong><?php echo $user_identity; ?></strong></p>
+			<p>
+				<a href="<?php echo wp_logout_url('index.php'); ?>">Log out</a> | 
+				<?php if (current_user_can('manage_options')) { 
+					echo '<a href="' . admin_url() . '">' . __('Admin') . '</a>'; } else { 
+					echo '<a href="' . admin_url() . 'profile.php">' . __('Profile') . '</a>'; } ?>
+
 			</p>
-			
-			<p id="nav">
-			<span class="left"><a href="<?php echo wp_lostpassword_url(); ?>"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> &nbsp; Forgot my password</a></span>
-			<span class="right"><a href="<?php echo site_url('/wp-login.php?action=register&redirect_to=' . get_permalink()); ?>">Register &nbsp; <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></span>
-			</p>
-			
-		</form>
-		
-<?php endif; ?>
-		
+		</div>
+	</div>
+
+	<?php } ?>
+
 </div>
-</div>
+
+<!-- Custom Login/Register/Password Code @ https://digwp.com/2010/12/login-register-password-code/ -->

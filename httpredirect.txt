@@ -1,0 +1,12 @@
+if ( is_customize_preview() ) { }
+
+elseif ( ! is_admin() ) {
+
+if ($_SERVER['HTTPS'] == "on") {
+    $url = "http://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    header("Location: $url");
+    exit;
+} 
+}
+
+else {} 

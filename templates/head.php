@@ -1,4 +1,74 @@
 <head> 
+
+
+<style>
+			html { color: #fff; background: #333 url(/wp-content/themes/wp/img/bg0.jpg); }
+			body { width: 90%; margin: 40px auto; font-family: Overpass, sans-serif; }
+			
+			h1 { font-family: Raleway, sans-serif; }
+			p a { color: #ccc; text-decoration: none; }
+			p a:hover { text-decoration: underline; }
+			
+			.custom-login { box-sizing: border-box; max-width: 450px; overflow: hidden; margin: 50px auto; padding: 20px; color: #333; }
+			.custom-login h3, .custom-login p { margin: 0; padding: 5px; }
+			.custom-login form { padding: 10px 0 0 0; }
+			
+			ul.tabs_login { position: relative; z-index: 2; width: 100%; overflow: hidden; margin: 0; padding: 0; list-style: none; }
+			ul.tabs_login li { float: left; margin: 0 5px 0 0; padding: 0; background-color: #fff; }
+			ul.tabs_login li a { display: block; padding: 10px 20px; color: #777; background-color: #ccc; text-decoration: none; text-shadow: 1px 1px 1px rgba(255,255,255,0.5); }
+			ul.tabs_login li a:hover { color: #555; background-color: #efefef; }
+			ul.tabs_login li.active_login a { font-weight: bold; color: #333; background-color: #fff; }
+			
+			.tab_container_login { background-color: #fff; }
+			.tab_content_login { padding: 20px; box-shadow: 0 1px 5px 0 rgba(0,0,0,0.7); }
+			
+			.username, .password, .login_fields { box-sizing: border-box; width: 100%; overflow: hidden; padding: 5px; }
+			.username label, .password label { display: inline-block; width: 85px; margin: 0; padding: 0; }
+			.username input, .password input { 
+				box-sizing: border-box; display: inline-block; width: 270px; margin: 0; padding: 5px; color: #777; 
+				border: 1px solid #ccc; font-size: 14px; font-family: Overpass, sans-serif; 
+				}
+			.username input:active, .password input:active, .username input:focus, .password input:focus { color: #333; border-color: #777; }
+			.username-reset label { display: none; }
+			.username-reset input { width: 90%; }
+			
+			.rememberme { padding: 5px 0; font-size: 80%; }
+			.user-submit { 
+				box-sizing: border-box; display: block; margin: 10px 0 0 0; padding: 15px 30px; cursor: pointer;
+				border: 0; color: #fff; font-size: 16px; background-color: #21759b; 
+				}
+			.user-submit:hover { background-color: rgba(33,117,155,0.8); }
+			
+			.user-logged-in { box-sizing: border-box; width: 100%; overflow: hidden; padding: 25px; background-color: #fff; box-shadow: 0 1px 5px 0 rgba(0,0,0,0.7); }
+			.user-icon { box-sizing: border-box; float: left; width: 125px; padding: 15px 0 0 5px; }
+			.user-icon img { width: 100px; height: 100px; box-shadow: 0 1px 5px 0 rgba(0,0,0,0.7); }
+			.user-info { box-sizing: border-box; float: left; width: 230px; }
+			.user-info p { margin: 20px 0 10px 0; }
+			.user-info p:last-child { margin: 0; }
+			.user-info a { color: #21759b; text-decoration: none; }
+			.user-info a:hover { color: rgba(33,117,155,0.8); text-decoration: underline; }
+			
+			@media only screen and (max-width: 960px) {
+				.custom-login { padding: 0; }	
+			}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+			jQuery(document).ready(function($) {
+				$(".tab_content_login").hide();
+				$("ul.tabs_login li:first").addClass("active_login").show();
+				$(".tab_content_login:first").show();
+				$("ul.tabs_login li").click(function() {
+					$("ul.tabs_login li").removeClass("active_login");
+					$(this).addClass("active_login");
+					$(".tab_content_login").hide();
+					var activeTab = $(this).find("a").attr("href");
+					$(activeTab).show();
+					return false;
+				});
+			});
+		</script>
+
     
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -25,7 +95,7 @@ $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 if ( is_front_page() && is_home() ) : ?>
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "Organization",
   "url": "<?php echo site_url(); ?>",
   "logo": "<?php echo esc_url( $logo[0] ); ?>",
@@ -42,7 +112,7 @@ if ( is_front_page() && is_home() ) : ?>
 
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "Organization",
   "url": "<?php echo site_url(); ?>",
   "logo": "https://teamwebsites.co.uk/images/teamwebsites%20logo%20minimized.png",
@@ -59,7 +129,7 @@ if ( is_front_page() && is_home() ) : ?>
 
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "Organization",
   "name": "<?php echo get_bloginfo( 'name' ); ?>",
   "url": "<?php echo site_url(); ?>",
@@ -73,7 +143,7 @@ if ( is_front_page() && is_home() ) : ?>
 
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "WebSite",
   "url": "<?php echo site_url(); ?>",
   "potentialAction": {
@@ -87,7 +157,7 @@ if ( is_front_page() && is_home() ) : ?>
 <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a21be6b1b118100135876ca&product=inline-share-buttons"></script>
 
 
-<link href="http://teamwebsites.co.uk/hpsliderstyles.css" rel="stylesheet">
+<link href="//teamwebsites.co.uk/hpsliderstyles.css" rel="stylesheet">
 <script src="https://teamwebsites.co.uk/flickity.pkgd.js"></script>
 <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a21be6b1b118100135876ca&product=custom-share-buttons"></script>
 
@@ -130,7 +200,7 @@ header, .top-header a, header a, .menu-item-has-children:after, #verifiedclub i 
 <meta name="twitter:creator" content="@myteamwebsite" />
 
 <?php if ( is_front_page() && is_home() ) {  
-    $url = site_url( '', 'http' );
+    $url = site_url( '/' );
 echo '<link rel="canonical" href="'.$url.'" />'; 
 echo "\n";   
 }
@@ -151,9 +221,9 @@ if ( is_front_page() && is_home() ) {
     }
     
     else {
-        echo '<meta property="og:image" content="http://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>';
+        echo '<meta property="og:image" content="https://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>';
         echo "\n";
-        echo '<meta property="twitter:image" content="http://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>';
+        echo '<meta property="twitter:image" content="https://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>';
         echo "\n";
     }
 }
@@ -164,8 +234,8 @@ else {
 	<meta property="twitter:image" content="<?php the_post_thumbnail_url('large'); ?>" />
 	
     <?php else: ?>
-   <meta property="og:image" content="http://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>
-   <meta property="twitter:image" content="http://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>
+   <meta property="og:image" content="https://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>
+   <meta property="twitter:image" content="https://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>
     <?php endif;
     
 }
@@ -230,7 +300,7 @@ else {
 	
     } 
     // If doesn't have post thumnail set, display following default TW meta image 
-    else {echo '<meta property="og:image" content="http://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>';
+    else {echo '<meta property="og:image" content="https://www.teamwebsites.co.uk/wp-content/uploads/2017/07/cropped-cropped-161l98Gq_400x400.jpg"/>';
     }
 }
 ?>
@@ -241,7 +311,7 @@ else {
 
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -273,7 +343,7 @@ else {
 
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -325,7 +395,7 @@ else {
 
 <?php if ('wpcm_match' == get_post_type() ) { ?>
 
-<div itemscope="" itemtype="http://schema.org/SportsEvent">
+<div itemscope="" itemtype="https://schema.org/SportsEvent">
 <meta itemprop="url" content="<?php the_permalink(); ?>">
         
 <?php $played = get_post_meta( $post->ID, 'wpcm_played', true );
@@ -347,20 +417,20 @@ if ( has_custom_logo() ) {
 <span itemprop="name" style="display: none;">Game: <?php the_title(); ?></span>
 <span itemprop="description" style="display: none;">Match</span>
 
-<span itemprop="homeTeam" itemscope="" itemtype="http://schema.org/SportsTeam">
+<span itemprop="homeTeam" itemscope="" itemtype="https://schema.org/SportsTeam">
 <meta itemprop="name" content="<?php echo $side[0]; ?>">
 </span>
 
-<span itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+<span itemprop="location" itemscope="" itemtype="https://schema.org/Place">
 <meta itemprop="name" content="<?php echo $side[0]; ?>">
 <meta itemprop="address" content="<?php echo $side[0]; ?>">
-<span itemprop="geo" itemscope="" itemtype="http://schema.org/GeoCoordinates">
+<span itemprop="geo" itemscope="" itemtype="https://schema.org/GeoCoordinates">
 <meta itemprop="latitude" content="">
 <meta itemprop="longitude" content="">
 </span>
 </span>
 
-<span itemprop="awayTeam" itemscope="" itemtype="http://schema.org/SportsTeam">
+<span itemprop="awayTeam" itemscope="" itemtype="https://schema.org/SportsTeam">
 <meta itemprop="name" content="<?php echo $side[1]; ?>">
 </span>
                        

@@ -1,12 +1,5 @@
 <?php
 
-
-if ($_SERVER['HTTPS'] == "on") {
-    $url = "http://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-    header("Location: $url");
-    exit;
-}
-
 use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
 

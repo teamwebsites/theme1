@@ -6,6 +6,8 @@
 
 .inline-edit-row, .inline-edit-row input, .inline-edit-row span, .inline-edit-row label, .inline-edit-row form, .inline-edit-row fieldset, .inline-edit-row select {font-size: 12.5px !important;}
 
+.taxonomy-wpcm_team .view {display: none !important;}
+
 .post-type-wpcm_player .term-slug-wrap, .post-type-wpcm_player .term-description-wrap {display: none !important;}
 
 .row-actions .trash a {background: red !important;}

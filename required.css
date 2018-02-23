@@ -3,6 +3,19 @@
 #ms-metabox-wrapper table {padding-top: 7px; font-size: 85%;} #ms-metabox-wrapper {margin: 12px 6px !important;}
 .loginformfield input[type="password" i], .loginformfield input[type="text" i] {padding: 7.5px 47px !important;}
 #ms-metabox-wrapper th {border-bottom: 1px dotted #b7b7b7; padding-bottom: 6px; margin-bottom: 5px !important; width: 50%; text-align: left;} #ms-metabox-wrapper td + td {text-align: center;}
+
+.upcoming_events_section #upcevents p {margin-bottom: 0px;} .upcoming_events_section #upcevents h2 {font-weight: 600; font-size: 15px;} .upcoming_events_section #upcevents h2 a {color: inherit !important;}
+
+h1, h2, h3, h4, h5, h6 {font-family: inherit;}
+
+.upcoming_events_section #upcevents {margin-top: 17px; padding-right: 6px; display: block;} #upcevents h2 {margin-bottom: 5px !important;} #upcevents p {margin-top: 7px;} .eventsnavigation-list a:last-child { text-align: right !important; } .eventsnavigation-list {clear: both; display: block; position: relative;} .eventsnavigation-list a {width: 50%; display: block; float: left;} .fixed-event-date {background: grey; border-radius: 50%; width: 33.5px; height: 33.5px; color: #fff; text-align: center; position: absolute; left: 0px; top: calc(50% - 15.5px);} .fixed-event-date {display: flex; align-items: center; justify-content: center;}
+
+
+html {color: #000 !important;}
+.tab_container_login p {margin: 5px 0px !important;}
+.tab_container_login form {flex-wrap: wrap; display: flex; display: -webkit-flex; align-items: center; -webkit-align-items: center;}
+.tab_container_login form div {display: flex; display: -webkit-flex; align-items: center; -webkit-align-items: center;}
+.ms-membership-form-wrapper, .register .page-header h1 {color: #000 !important;}
 .social_media_link, .social_media_link .fa {color: #fff !important;}
 blockquote {background: #dadada; -webkit-margin-start: 25px; -webkit-margin-end: 8px; position: relative; padding: 2px 22px; color: #0c0c0c;} blockquote:before { content: ""; background: url(https://www.teamwebsites.co.uk/quote.png) #e2e2e2; padding: 5px; background-repeat: no-repeat; background-position: center; background-size: 50%; display: block; position: absolute; left: -40px; border-radius: 50%; width: 40px; height: 40px; top: calc(50% - 25px); bottom: 0px; }
 #customize-theme-controls .accordion-section .button {line-height: 200% !important;}
@@ -66,7 +79,7 @@ body {background: #ececec47;}
 #youtube-righthalf {width: 70%; float: left; display: block;}
 .search-form .search-field {border-top-right-radius: 0px !important; border-bottom-right-radius: 0px !important; border-top-left-radius: 7px !important; border-bottom-left-radius: 7px; font-size: 12px; padding: 9px 10px !important;}
 #youtube-lefthalf p {background: grey; border-radius: 15px; margin-top: 5px; margin-bottom: 5px; font-size: 11px; padding: 3px 9px; color: #fff;}
-@media screen and (min-width: 951px) {.search-form .search-submit {float: right;} #youtube-lefthalf {width: 30%; float: left; display: flex; align-items: center;} #youtube-lefthalf, #youtube-righthalf{height: 211.5px;}}
+@media screen and (min-width: 951px) { .upcoming_events_section #upcevents {width: 33.3%; float: left;} .search-form .search-submit {float: right;} #youtube-lefthalf {width: 30%; float: left; display: flex; align-items: center;} #youtube-lefthalf, #youtube-righthalf{height: 211.5px;}}
 #youtube-clubdetails {display: flex; justify-content: center; align-items: center; height: auto !important; flex-wrap: wrap;}
 .youtube-homepage-block {flex-wrap: wrap; text-align: center; display: block; clear: both;} .youtube-homepage-block h2 {display: none !important;} .youtube-homepage-block h3 {flex: 100%; display: block !important; clear: both !important;} .youtube-homepage-block #logo {margin-right: 0px !important; margin-bottom: 4px !important; display: block !important; clear: both !important;}
 
@@ -548,7 +561,8 @@ article img:first-child + p {
 
 .footer-sponsors-affiliations {background: #fff !important;}
 
-.getintouch a {text-decoration: underline !important;}
+.getintouch a {text-decoration: none !important;}
+.getintouch a:hover, .getintouch a:focus {text-decoration: underline !important;}
 
 footer.comment-meta a { color: #000 !important;} .comment-meta {background: transparent !important; color: grey !important;}
 

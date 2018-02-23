@@ -27,6 +27,79 @@ foreach ($sage_includes as $file) {
 }
 unset($file, $filepath);
 
+add_action( 'plugins_loaded', 'wpse_232287_init' );
+
+function wpse_232287_init() { // Initiate the function
+    ob_start( 'wpse_232287_remove_http' );
+}
+
+function wpse_232287_remove_http( $buffer ) {
+    // Check for a Content-Type header, only apply rewriting to "text/html" or undefined
+    $headers = headers_list();
+    $content_type = null;
+
+    foreach ( $headers as $header ) {
+        if (strpos( strtolower( $header ), 'content-type:' ) === 0 ) {
+            $pieces = explode( ':', strtolower( $header ) );
+            $content_type = trim( $pieces[1] );
+            break;
+        }
+    }
+
+    if ( is_null( $content_type ) || substr( $content_type, 0, 9 ) === 'text/html' ) { // Replace 'href'/'src' attributes within script/link/base/img tags with '//'
+        $return = preg_replace( "/(<(script|link|base|img|form)([^>]*)(href|src|action)=[\"'])https?:\\/\\//i", "$1//", $buffer );
+        if ( $return ) { // On regex error, skip overwriting content
+            $buffer = $return;
+        }
+    }
+    return $buffer;
+}
+
+/* Main redirection of the default login page */
+function redirect_login_page() {
+	$login_page  = home_url('/login/');
+	$page_viewed = basename($_SERVER['REQUEST_URI']);
+
+	if($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+		wp_redirect($login_page);
+		exit;
+	}
+}
+add_action('init','redirect_login_page');
+
+/* Where to go if a login failed */
+function custom_login_failed() {
+	$login_page  = home_url('/login/');
+	wp_redirect($login_page . '?login=failed');
+	exit;
+}
+add_action('wp_login_failed', 'custom_login_failed');
+
+function wp_authenticate_user() {
+    $login_page  = home_url('/login/');
+	wp_redirect($login_page . '?login=wpau_confirmation_error');
+	exit;
+}
+add_action('wp_login_failed', 'wp_authenticate_user');
+
+/* Where to go if any of the fields were empty */
+function verify_user_pass($user, $username, $password) {
+	$login_page  = home_url('/login/');
+	if($username == "" || $password == "") {
+		wp_redirect($login_page . "?login=empty");
+		exit;
+	}
+}
+add_filter('authenticate', 'verify_user_pass', 1, 3);
+
+/* What to do on logout */
+function logout_redirect() {
+	$login_page  = home_url('/login/');
+	wp_redirect($login_page . "?login=false");
+	exit;
+}
+add_action('wp_logout','logout_redirect');
+
 
 function admin_pages_redirect() {
 $current_url = add_query_arg(NULL, NULL);
@@ -1073,11 +1146,11 @@ function custom_breadcrumbs() {
        
         // Build the breadcrums
         echo '
-<ul style="display: none !important;" itemscope itemtype="http://schema.org/BreadcrumbList" id="' . $breadcrums_id . '" class="' . $breadcrums_class . '">';
+<ul style="display: none !important;" itemscope itemtype="https://schema.org/BreadcrumbList" id="' . $breadcrums_id . '" class="' . $breadcrums_class . '">';
            
         // Home page
         echo '<li class="item-home" itemprop="itemListElement" itemscope
-      itemtype="http://schema.org/ListItem"><a itemscope itemtype="http://schema.org/Thing"
+      itemtype="https://schema.org/ListItem"><a itemscope itemtype="https://schema.org/Thing"
        itemprop="item" class="bread-link bread-home" href="' . get_home_url() . '" title="' . $home_title . '"> <span itemprop="name">' . $home_title . '</span> </a> <meta itemprop="position" content="1" /> </li>';
         echo '<li class="separator separator-home"> ' . $separator . ' </li>';
            
@@ -1321,52 +1394,7 @@ function custom_breadcrumbs() {
 }
 
 
-/* Main redirection of the default login page */
-function redirect_login_page() {
-	$login_page  = home_url( '/login/', 'https' );
-	$page_viewed = basename($_SERVER['REQUEST_URI']);
 
-	if($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
-		wp_redirect($login_page);
-		exit;
-	}
-}
-add_action('init','redirect_login_page');
-
-/* Where to go if a login failed */
-function custom_login_failed() {
-	$login_page  = home_url('/login/');
-	wp_redirect($login_page . '?login=failed');
-	exit;
-}
-add_action('wp_login_failed', 'custom_login_failed');
-
-/* Where to go if any of the fields were empty */
-function verify_user_pass($user, $username, $password) {
-	$login_page  = home_url('/login/');
-	if($username == "" || $password == "") {
-		wp_redirect($login_page . "?login=empty");
-		exit;
-	}
-}
-add_filter('authenticate', 'verify_user_pass', 1, 3);
-
-
-function login_failed() {
-  $login_page  = home_url( '/login/' );
-  wp_redirect( $login_page . '?login=failed' );
-  exit;
-}
-add_action( 'wp_login_failed', 'login_failed' );
- 
-function verify_username_password( $user, $username, $password ) {
-  $login_page  = home_url( '/login/' );
-    if( $username == "" || $password == "" ) {
-        wp_redirect( $login_page . "?login=empty" );
-        exit;
-    }
-}
-add_filter( 'authenticate', 'verify_username_password', 1, 3);
 
 add_action('save_post', 'change_content');
     global $post;
